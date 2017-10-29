@@ -70,6 +70,7 @@ RoverSenseLayer Revision 2 design properties are as follows for production:
 * Minimum track/spacing 6/6mil
 * Cutouts required
 * Plating required
+* Montage drill holes M2.5
 * (Preferrably) Red solder Mask
 * (Preferrably) White silkscreen
 

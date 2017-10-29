@@ -26,7 +26,7 @@ and its synchronization implementations such as mutexes are widely used.
 * Temperature and humidity measurement using DHT22 sensor.
 * Reactive implementations for TCP socket server and TCP socket client, with proper JSON formatted data for communication.
 * OLED display application that is able to display bluetooth, Hono cloud, ethernet, wireless interface, and internet with the help of **status_library** library.
-* Image processing application (currently Traffic cone detection).
+* OpenCV 2.4.9 utilization and image processing application (currently Traffic cone detection).
 * SHARP Analog Proximity measurement sensor interfacing and implementations.
 * SRF-02, HCSR-04, and Grove Ultrasonic sensor interfacing and implementations.
 * Motor driving implementations.
@@ -45,16 +45,24 @@ roverapp Infrastructure
    :align: center
    :alt: ../roverstatic/images/roverapp_infra.png
 
+*************************************************
+Downloading roverapp
+*************************************************
 
+.. note:: Rover-app source code is maintained under the following repository:
+
+          `https://github.com/app4mc-rover/rover-app <https://github.com/app4mc-rover/rover-app>`_
+		  
 *************************************************
 Getting started with roverapp
 *************************************************
-
+Installation
+=================================================
 .. note:: In order to see how roverapp is installed and compiled, please see :ref:`roverapp Installation <roverappinstallation>` section.
 
 
 *************************************************
-roverapp Complete API
+roverapp Complete Reference
 *************************************************
 
 Drivers
