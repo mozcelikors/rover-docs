@@ -1,0 +1,5 @@
+.. toctree::
+   :glob:
+
+Installation Instructions
+#########################
