@@ -41,7 +41,8 @@ Downloading roverapp
 .. note:: Rover-web source code is maintained under the following repositories:
 
           `https://github.com/app4mc-rover/rover-web <https://github.com/app4mc-rover/rover-web>`_
-		  
+
+
 *************************************************
 Getting started with roverweb
 *************************************************
@@ -50,6 +51,7 @@ Installation
 =================================================
 .. note:: In order to see how roverapp is installed and compiled, please see :ref:`roverweb Installation <roverwebinstallation>` section.
 
+.. _roverwebstart: 
 Running the Application
 =================================================
 Before running the application, make sure that installation steps are successfully completed.
@@ -68,6 +70,8 @@ For roverweb's operation, it is not necessary for roverapp to be running. Howeve
 *************************************************
 roverweb Complete Reference
 *************************************************
+Some Words on Infrastructure
+=================================================
 
 Ports
 =================================================
@@ -77,3 +81,101 @@ roverweb uses several ports in the network stack in order to keep communication 
 * Socket.IO server: 5502
 * Roverweb TCP server end: 8502
 * Roverweb TCP client end: 8501
+
+Data Formats
+=================================================
+Four types of data is currently passed between roverapp and roverweb's reactive socket processes. Those data are all JSON formatted, concatenated with
+end of file (EOF) string ``\r\n``.
+
+* Sensor Data (from roverapp to roverweb), denoted by ``sensor``
+* Core Utilization Data (from roverapp to roverweb), denoted by ``util``
+* Rover Control Data (from roverweb to roverapp), denoted by ``control``
+* Rover Speed Data (from roverweb to roverapp), denoted by ``speed``
+
+Example data are shown below for each of the given data format types:
+
+* Sensor Data
+	Data is periodically sent from roverapp to roverweb.
+	
+	.. code-block:: python
+	   :linenos:
+
+		{
+			"rover_dtype"   : "sensor",
+			"data" :
+			{
+				"infrared0"   : 100.0, 
+				"infrared1"   : 100.0, 
+				"infrared2"   : 100.0, 
+				"infrared3"   : 100.0, 
+				"front"       : 20, 
+				"rear"        : 15, 
+				"temperature" : 22.0, 
+				"humidity"    : 67.0, 
+				"bearing"     : 47.0
+			}
+		}\r\n
+		
+* Utilization Data
+	Data is periodically sent from roverapp to roverweb.
+	
+	.. code-block:: python
+	   :linenos:
+
+		{
+			"rover_dtype"   : "util",
+			"data" :
+			{
+				"core0"   : 100.0, 
+				"core1"   : 100.0, 
+				"core2"   : 100.0, 
+				"core3"   : 100.0, 
+			}
+		}\r\n
+		
+* **Control Data**
+	Data is asynchronously (upon user events) sent from roverweb to roverapp.
+	
+	.. code-block:: python
+	   :linenos:
+
+		{
+			"rover_dtype"   : "control",
+			"data" :
+			{
+				"command"   : "F",  
+			}
+		}\r\n
+		
+	``command`` entry can indicate many integrated functions, such as the ones listed below:
+
+	* P -> Parking Mode Left
+	* O -> Parking Mode Right
+	* U -> Compass Calibration
+	* M -> Adaptive Cruise Control Mode
+	* X -> Manual Drive Mode
+	* L -> Booth Mode - Demo1
+	* N -> Booth Mode - Demo2
+	* R -> Shutdown Hook
+	* U -> Compass Calibration
+	* F -> Stop Movement
+	* Q -> Go Forward-Left
+	* W -> Go Forward
+	* E -> Go Forward-Right
+	* A -> Go Backward-Left
+	* S -> Go Backward
+	* D -> Go Backward-Right
+		
+* Speed Data
+	Data is asynchronously (upon user events) sent from roverweb to roverapp.
+	
+	.. code-block:: python
+	   :linenos:
+
+		{
+			"rover_dtype"   : "speed",
+			"data" :
+			{
+				"speed"   : 360, 
+			}
+		}\r\n
