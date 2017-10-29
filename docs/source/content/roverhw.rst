@@ -14,7 +14,7 @@ An illustration of how components look and how they're located in rover is given
    :align: center
    :alt: ../roverstatic/images/rovercomponents.png
    
-The complete list of materials to construct a rover is given in `APP4MC Rover Wiki <https://wiki.eclipse.org/APP4MC/Rover>`_.
+.. note:: The complete list of materials to construct a rover is given in `APP4MC Rover Wiki <https://wiki.eclipse.org/APP4MC/Rover>`_.
 
 *************************************************
 About Motor Driver Layer
@@ -75,12 +75,12 @@ RoverSenseLayer Revision 2 design properties are as follows for production:
 
 RoverSenseLayer Schematics
 ===========================
-Schematics can be found in the following git repository:
+.. note:: Schematics can be found in the following git repository: 
 
-`https://github.com/app4mc-rover/rover-sense-layer-rev2 <https://github.com/app4mc-rover/rover-sense-layer-rev2>`_
+          `https://github.com/app4mc-rover/rover-sense-layer-rev2 <https://github.com/app4mc-rover/rover-sense-layer-rev2>`_
 
 RoverSenseLayer Source Files 
 =============================
-KiCad design files can be found in the following git repository:
+.. note:: KiCad design files can be found in the following git repository: 
 
-`https://github.com/app4mc-rover/rover-sense-layer-rev2 <https://github.com/app4mc-rover/rover-sense-layer-rev2>`_
+          `https://github.com/app4mc-rover/rover-sense-layer-rev2 <https://github.com/app4mc-rover/rover-sense-layer-rev2>`_

@@ -33,8 +33,7 @@ roverweb Features
 Getting started with roverweb
 *************************************************
 
-Requirements
-=================================================
+.. note:: In order to see how roverapp is installed and compiled, please see :ref:`roverweb Installation <roverwebinstallation>` section.
 
 *************************************************
 roverweb Complete API
