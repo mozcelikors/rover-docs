@@ -24,7 +24,7 @@ How to set up the Raspberry Pi camera is explained here: `Camera configuration <
 
 Setting Up an Access Point
 =================================================
-Access point setup is explained here: `USING YOUR NEW RASPBERRY PI 3 AS A WIFI ACCESS POINT WITH HOSTAPD <https://frillip.com/using-your-raspberry-pi-3-as-a-wifi-access-point-with-hostapd/>`_.
+Access point setup is explained here: `Access Point Setup <https://frillip.com/using-your-raspberry-pi-3-as-a-wifi-access-point-with-hostapd/>`_.
 
 .. _roverappinstallation: 
 *************************************************
@@ -114,17 +114,85 @@ Raspberry Pi 3 comes with gcc installed.
 
 Installing run-time dependencies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Installing wiringPi
---------------------------------------------------
-Installation of wiringPi is explained in `this link <http://wiringpi.com/download-and-install/>`_.
-
 Installing OpenCV
 --------------------------------------------------
 
 Installing raspicam
 --------------------------------------------------
+.. code-block:: bash
+   :linenos:
+
+   git clone https://github.com/cedricve/raspicam.git
+   cd raspicam
+   mkdir -p build
+   cd build
+   cmake ..
+   make
+   sudo make install
+
+Installing wiringPi
+--------------------------------------------------
+Installation of wiringPi is explained in `this link <http://wiringpi.com/download-and-install/>`_.
+
+
+
+Installing bluetooth
+--------------------------------------------------
+.. code-block:: bash
+   :linenos:
+
+   sudo apt-get update
+   sudo apt-get install bluez pi-bluetooth bluez-tools blueman libbluetooth-dev
+   
+Installing jsoncpp
+--------------------------------------------------
+.. code-block:: bash
+   :linenos:
+
+   cd /home/pi
+   git clone https://github.com/open-source-parsers/jsoncpp.git
+   cd jsoncpp
+   mkdir -p build
+   cd build
+   cmake ..
+   make
+   sudo make install
+
+Installing raspicam
+--------------------------------------------------
 Installation of wiringPi is explained in `this link <https://github.com/6by9/raspicam-0.1.3>`_.
 
+Installing roverapp
+*************************************************
+To install roverapp, the following command should be executed:
+
+.. code-block:: bash
+   :linenos:
+
+   git clone https://github.com/app4mc-rover/rover-app.git
+   cd rover-app
+   mkdir -p build
+   cd build
+   cmake ..
+   make
+   sudo make install
+   
+If desired, the automatic installation script can be used:
+
+.. code-block:: bash
+   :linenos:
+
+   git clone https://github.com/app4mc-rover/rover-app.git
+   cd rover-app
+   sudo ./install_roverapp.sh
+   
+After installation, roverapp can be run by the following command:
+
+.. code-block:: bash
+   :linenos:
+
+   sudo ./roverapp
+   
 Automated Installation Instructions
 =================================================
 
@@ -150,6 +218,7 @@ The following are the run-time used for the roverweb:
 
 Manual Installation Instructions
 =================================================
+
 Installing Dependencies
 *************************************************
 Installing build-time dependencies
