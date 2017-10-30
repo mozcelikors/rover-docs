@@ -61,6 +61,15 @@ Installation
 =================================================
 .. note:: In order to see how roverapp is installed and compiled, please see :ref:`roverapp Installation <roverappinstallation>` section.
 
+Running roverapp
+=================================================
+
+After installation, roverapp can be run by the following command from project root:
+
+.. code-block:: bash
+   :linenos:
+
+   sudo ./roverapp
 
 *************************************************
 roverapp Complete Reference
