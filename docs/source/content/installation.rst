@@ -4,6 +4,28 @@
 Installation Instructions
 #########################
 
+*************************************************
+Before You Begin..
+*************************************************
+
+Beginning with Raspberry Pi
+=================================================
+
+Enabling Bluetooth
+=================================================
+
+Enabling I2C
+=================================================
+Enabling I2C is explained here: `Adafruit: Configuring I2C <https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c>`_
+
+Setting Up Camera
+=================================================
+How to set up the Raspberry Pi camera is explained here: `Camera configuration <https://www.raspberrypi.org/documentation/configuration/camera.md>`_
+
+Setting Up an Access Point
+=================================================
+Access point setup is explained here: `USING YOUR NEW RASPBERRY PI 3 AS A WIFI ACCESS POINT WITH HOSTAPD <https://frillip.com/using-your-raspberry-pi-3-as-a-wifi-access-point-with-hostapd/>`_.
+
 .. _roverappinstallation: 
 *************************************************
 roverapp Installation
@@ -17,7 +39,7 @@ The following are the build-time dependencies required for the roverapp:
 
 * build-essential
 * cmake
-* git
+* git-core
 * python-pip Python package installer
 * Python 2.7
 * gcc
@@ -80,6 +102,29 @@ If you already have psutil installed, you can upgrade it:
    pip install psutil --upgrade
    
    
+Installing other build-time dependencies
+--------------------------------------------------
+
+Raspberry Pi 3 comes with gcc installed. 
+
+.. code-block:: bash
+   :linenos:
+
+   sudo apt-get install build-essential git-core cmake
+
+Installing run-time dependencies
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Installing wiringPi
+--------------------------------------------------
+Installation of wiringPi is explained in `this link <http://wiringpi.com/download-and-install/>`_.
+
+Installing OpenCV
+--------------------------------------------------
+
+Installing raspicam
+--------------------------------------------------
+Installation of wiringPi is explained in `this link <https://github.com/6by9/raspicam-0.1.3>`_.
+
 Automated Installation Instructions
 =================================================
 
@@ -92,7 +137,7 @@ Requirements
 =================================================
 The following are the build-time dependencies required for the roverweb:
 
-* git
+* git-core
 
 The following are the run-time used for the roverweb:
 
@@ -116,7 +161,7 @@ The following are must-have build-time dependencies that are partially required 
    :linenos:
 
    sudo apt-get update
-   sudo apt-get install git
+   sudo apt-get install git-core
    
 Installing curl
 --------------------------------------------------

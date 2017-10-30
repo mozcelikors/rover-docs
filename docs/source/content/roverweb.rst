@@ -62,7 +62,7 @@ In order to run the server after installation, the following command must be exe
 
    node scripts/nodejs/start_roverweb.js
 
-After reading from the console that HTTP server is running, the web interface could be accessed using ``http://192.168.168.1/roverweb.html``.
+After reading from the console that HTTP server is running, the web interface could be accessed using ``http://192.168.168.1:5500/roverweb.html``.
 Before the web interface can be opened, it is important for one to connect to the network (using SSID/PSK) of the rover. 
 
 For roverweb's operation, it is not necessary for roverapp to be running. However, full functions of roverweb could be benefited when roverapp is also running.
@@ -72,6 +72,19 @@ roverweb Complete Reference
 *************************************************
 Some Words on Infrastructure
 =================================================
+Roverweb consists of the following elements:
+
+* ``roverweb_http_server.js``: HTTP server realizes web interface contents in a proper fashion. Thus, the information can be displayed using web browsers.
+
+* ``roverweb_tcp_client.js``: Reactive TCP client that connects to the TCP client end port and sends information to roverapp. TCP client implementation uses NET sockets and is implemented in a manner that constantly tries to reconnect if a connection fails.
+
+* ``roverweb_tcp_server.js``: Reactive TCP server that connects to the TCP server end port and receives information from roverapp.  TCP server implementation uses NET sockets and is implemented in a manner that constantly tries to reconnect if a connection fails.
+
+* ``roverweb_socketio_server.js``: SocketIO server is a core implementation that handles Websocket communication between ``roverweb_socketio_server.js`` and ``roverweb_tcp_server.js`` and ``roverweb_tcp_client.js`` using HTTP protocol. It is able to pass data to/from HTTP server.
+
+* ``js-interfaces``: Interface files are responsible for variable globalisation between ``roverweb_socketio_server.js`` and ``roverweb_tcp_server.js`` and ``roverweb_tcp_client.js``.
+
+Once the application is run using ``start_roverweb.js`` each of these components are initiated, and the web interface is available at ``http://192.168.168.1:5500/roverweb.html``.
 
 Ports
 =================================================

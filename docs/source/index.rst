@@ -7,7 +7,7 @@ APP4MC-Rover Documentation
 =================================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 6
    :caption: Contents:
    :numbered:
    :glob:
