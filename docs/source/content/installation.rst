@@ -9,6 +9,8 @@ Installation Instructions
 roverapp Installation
 *************************************************
 
+Installation procedure is tested with Raspberry Pi 3 / Raspbian. In case of any problems, please report to one of our maintainers: `M.Özcelikörs <mailto:mozcelikors@gmail.com>`_, `R.Höttger <mailto:robert.hoettger@fh-dortmund.de>`_.
+
 Requirements
 =================================================
 The following are the build-time dependencies required for the roverapp:
@@ -16,9 +18,16 @@ The following are the build-time dependencies required for the roverapp:
 * build-essential
 * cmake
 * git
+* python-pip Python package installer
+* Python 2.7
+* gcc
 
 The following are the run-time dependencies used for the roverapp:
 
+* Raspbian or similar distro that uses the Raspberry Pi metadata (meta-raspberrypi)
+* Access Point setup (with IP 192.168.168.1)
+* Python 2.7
+* psutil Python module
 * wiringPi library
 * raspicam-0.1.2 or raspicam-0.1.3 library
 * OpenCV 2.4.9 library
@@ -34,51 +43,16 @@ Manual Installation Instructions
 .. Fetch, Extract, Patch, Configure, Build, Install
 .. *************************************************
 
-
-Automated Installation Instructions
-=================================================
-
-.. _roverwebinstallation: 
-*************************************************
-roverweb Installation
-*************************************************
-
-Requirements
-=================================================
-The following are the build-time dependencies required for the roverweb:
-
-* Raspbian with Access Point (with IP 192.168.168.1)
-* python-pip Python package installer
-
-The following are the run-time used for the roverweb:
-
-* Python 2.7
-* psutil Python module
-* node.js with version 8.x or higher
-* node.js modules: net, connect, server-static, http, socket.io
-* mjpg-streamer-experimental
-* curl
-
-Manual Installation Instructions
-=================================================
 Installing Dependencies
 *************************************************
+
 Installing build-time dependencies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The following are must-have build-time dependencies that are partially required by not only roverweb, but also many open-source packages.
-
-.. code-block:: bash
-   :linenos:
-
-   sudo apt-get update
-   sudo apt-get install build-essential cmake git curl
-
-   
 Installing Python 2.7
 --------------------------------------------------
 
-Raspberry Pi 3 comes with Python 2.7 installated. For other Linux distributions, it might be required to install:
+Raspberry Pi 3 comes with Python 2.7 installed. For other Linux distributions, it might be required to install:
 
 .. code-block:: bash
    :linenos:
@@ -105,6 +79,56 @@ If you already have psutil installed, you can upgrade it:
 
    pip install psutil --upgrade
    
+   
+Automated Installation Instructions
+=================================================
+
+.. _roverwebinstallation: 
+*************************************************
+roverweb Installation
+*************************************************
+
+Requirements
+=================================================
+The following are the build-time dependencies required for the roverweb:
+
+* git
+
+The following are the run-time used for the roverweb:
+
+* Raspbian or similar distro that uses the Raspberry Pi metadata (meta-raspberrypi)
+* Access Point setup (with IP 192.168.168.1)
+* node.js with version 8.x or higher
+* node.js modules: net, connect, server-static, http, socket.io
+* mjpg-streamer-experimental
+* curl
+
+Manual Installation Instructions
+=================================================
+Installing Dependencies
+*************************************************
+Installing build-time dependencies
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The following are must-have build-time dependencies that are partially required by not only roverweb, but also many open-source packages.
+
+.. code-block:: bash
+   :linenos:
+
+   sudo apt-get update
+   sudo apt-get install git
+   
+Installing curl
+--------------------------------------------------
+
+.. code-block:: bash
+   :linenos:
+
+   sudo apt-get install curl
+   
+
+Installing run-time dependencies
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Installing node.js and its required modules
 --------------------------------------------------
 
@@ -150,14 +174,7 @@ One particular mjpg-streamer version provides streaming with Raspberry Pi. In or
    make
    sudo make install
 
-Installing curl
---------------------------------------------------
 
-.. code-block:: bash
-   :linenos:
-
-   sudo apt-get install curl
-   
 Installing roverweb
 *************************************************
 
