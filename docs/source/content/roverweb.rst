@@ -35,7 +35,7 @@ roverweb Features
 
 
 *************************************************
-Downloading roverapp
+Downloading roverweb
 *************************************************
 
 .. note:: Rover-web source code is maintained under the following repositories:

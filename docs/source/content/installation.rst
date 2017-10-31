@@ -16,7 +16,67 @@ We advise you to use Raspbian Jessie or Raspbian Sketch from `this <https://www.
 
 Enabling Bluetooth
 =================================================
+In some Raspbian releases, bluetooth is pre-installed. In order to check if bluetooth is working execute the following command:
 
+.. code-block:: bash
+   :linenos:
+
+   hcitool scan
+   service bluetooth status
+   
+In case the first command does not return with errors, that means that the bluetooth connection in Raspberry Pi is now available for use.
+The second command is used for checking if the bluetooth is active.
+If the first command results in an error, you can start the bluetooth service with the following commands:
+
+.. code-block:: bash
+   :linenos:
+
+   sudo apt-get install pi-bluetooth bluez bluez-tools blueman
+   sudo systemctl start bluetooth
+   
+.. warning:: **Use the following commands at your own RISK!!!**
+   
+   For older Raspbian Jessie distributions, there is a known issue of bluetooth not working properly. If you have such a problem, you can upgrade the
+   distro version and use a specific kernel version which is working with bluetooth device. Following commands should be executed in order to do so:
+   
+   .. code-block:: bash
+      :linenos:
+      
+      sudo apt-get update
+      sudo apt-get dist-upgrade
+      sudo rm /etc/udev/rules.d/99-com.rules
+      sudo apt-get -o Dpkg::Options::="--force-confmiss" install --reinstall raspberrypi-sys-mods
+	  
+   If command above does not work, try the next one:
+   
+   .. code-block:: bash
+      :linenos:
+	  
+      sudo apt-get install raspberrypi-sys-mods
+
+   Press ``Y`` to install the mods. Then do a kernel downgrade to version 4.4.50:
+   
+   .. code-block:: bash
+      :linenos:
+	  
+      sudo systemctl reboot
+      sudo rpi-update 52241088c1da59a359110d39c1875cda56496764
+	  
+   As a final step, you should add ``btuart`` to your ``/etc/rc.local`` and reboot your Raspberry Pi.
+   
+   .. code-block:: bash
+      :linenos:
+	  
+      sudo reboot
+	  
+   After reboot, you can test if bluetooth is working:
+   
+   .. code-block:: bash
+      :linenos:
+
+      hcitool scan
+      service bluetooth status
+	  
 
 Enabling I2C
 =================================================
