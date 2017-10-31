@@ -244,7 +244,7 @@ Due to the aforementioned reason, it is advised to keep this part as follows:
    
 But uncomment the first line only when it is suspected that something regarding cloud connection is failing.
 
-When there is no internet connection with DEBUG_HTTP_RESPONSE defined, a message such as the following is displayed: ``Code: 0``.
+When there is no internet connection with ``DEBUG_HTTP_RESPONSE`` defined, a message such as the following is displayed: ``Code: 0``.
 
 Example Usage
 -------------------------------------------------
@@ -258,7 +258,7 @@ Example Usage
 	{
 		  int status;
 		  double bearing_val;
-		  status = registerDeviceToHonoInstance("idial.institute",8080,"DEFAULT_TENANT", "roverBearing");
+		  status = registerDeviceToHonoInstance("idial.institute",28080,"DEFAULT_TENANT", "roverBearing");
 		  if (status == 0)  // If DEBUG_HTTP_RESPONSE is commented, you can manually handle errors by using the status/exit code
 		  {
 				fprintf (stderr, "Device is not registered");
@@ -274,6 +274,10 @@ Example Usage
 				}
 		  }  
 	}
+
+Resources
+-------------------------------------------------
+The material provided for hono_interaction uses Hono API, which is provided here: `Hono API <https://www.eclipse.org/hono/api/>`_.
 
 pthread_monitoring
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
