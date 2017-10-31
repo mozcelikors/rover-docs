@@ -1,0 +1,28 @@
+# This is for building automatically using a Travis docker, and then deploying to Github Pages
+
+language: python
+
+python:
+  - 3.6
+
+before_install:
+  - sudo apt-get install python-pip
+  
+install:  
+  - pip install sphinx
+  - pip install sphinx_rtd_theme
+
+script:
+#  - sphinx-build -b html docs/source/ docs/build/
+  - cd docs/
+  - make html
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN #Create token from Github and Set in travis-ci.org dashboard
+  local_dir: ./build/html/
+  on:
+    branch: master
+    
+# In conf.py, be sure to add: extensions = ['sphinx.ext.githubpages']
