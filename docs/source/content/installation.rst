@@ -97,7 +97,10 @@ Access point setup is explained here: `Access Point Setup <https://frillip.com/u
 roverapp Installation
 *************************************************
 
-Installation procedure is tested with Raspberry Pi 3 / Raspbian. In case of any problems, please report to one of our maintainers: `M.Özcelikörs <mailto:mozcelikors@gmail.com>`_, `R.Höttger <mailto:robert.hoettger@fh-dortmund.de>`_.
+Installation procedure is tested with Raspberry Pi 3 / Raspbian Jessie and Raspbian Sketch. In case of any problems, please report to one of the project maintainers: 
+
+* Mustafa Özcelikörs <mozcelikors@gmail.com>
+* Robert Höttger <robert.hoettger@fh-dortmund.de>
 
 Requirements
 =================================================
@@ -182,6 +185,8 @@ Installing run-time dependencies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Installing OpenCV
 --------------------------------------------------
+OpenCV installation is explained in `this link <https://docs.opencv.org/2.4/doc/tutorials/introduction/linux_install/linux_install.html>`_.
+
 
 Installing wiringPi
 --------------------------------------------------
