@@ -10,9 +10,13 @@ Before You Begin..
 
 Beginning with Raspberry Pi
 =================================================
+Getting started instructions are here: `Quick Start Guide <https://www.raspberrypi.org/help/quick-start-guide/2/>`_
+
+We advise you to use Raspbian Jessie or Raspbian Sketch from `this <https://www.raspberrypi.org/downloads/raspbian/>`_ website.
 
 Enabling Bluetooth
 =================================================
+
 
 Enabling I2C
 =================================================
@@ -25,6 +29,8 @@ How to set up the Raspberry Pi camera is explained here: `Camera configuration <
 Setting Up an Access Point
 =================================================
 Access point setup is explained here: `Access Point Setup <https://frillip.com/using-your-raspberry-pi-3-as-a-wifi-access-point-with-hostapd/>`_.
+
+(Please use ``192.168.168.1`` IP address for the rover.)
 
 .. _roverappinstallation: 
 *************************************************
@@ -117,19 +123,6 @@ Installing run-time dependencies
 Installing OpenCV
 --------------------------------------------------
 
-Installing raspicam
---------------------------------------------------
-.. code-block:: bash
-   :linenos:
-
-   git clone https://github.com/cedricve/raspicam.git
-   cd raspicam
-   mkdir -p build
-   cd build
-   cmake ..
-   make
-   sudo make install
-
 Installing wiringPi
 --------------------------------------------------
 Installation of wiringPi is explained in `this link <http://wiringpi.com/download-and-install/>`_.
@@ -160,7 +153,24 @@ Installing jsoncpp
 
 Installing raspicam
 --------------------------------------------------
-Installation of wiringPi is explained in `this link <https://github.com/6by9/raspicam-0.1.3>`_.
+
+Installation of raspicam is explained in `this link <https://github.com/6by9/raspicam-0.1.3>`_.
+
+To install raspicam, execute the following commands:
+
+.. code-block:: bash
+   :linenos:
+
+   cd /home/pi
+   git clone https://github.com/6by9/raspicam-0.1.3.git
+   cd raspicam-0.1.3
+   mkdir -p build
+   cd build
+   cmake ..
+   make
+   sudo make install
+   
+.. note:: As an alternative you can use the following git repository: `raspicam 0.1.2 <https://github.com/cedricve/raspicam.git>`_.
 
 Installing roverapp
 *************************************************
@@ -341,9 +351,7 @@ After installation, roverapp can be run by the following command:
 
    sudo ./roverapp
    
-Automated Installation Instructions
-=================================================
-
+   
 .. _roverwebinstallation: 
 *************************************************
 roverweb Installation
@@ -420,20 +428,22 @@ There are also node.js modules which are required for roverweb. Those modules mu
    
 Installing mjpg-streamer-experimental
 --------------------------------------------------
-One particular mjpg-streamer version provides streaming with Raspberry Pi. In order to install the module, execute the following commands:
+One particular mjpg-streamer version provides streaming with Raspberry Pi. 
+
+In order to install the module, execute the following commands:
 
 .. code-block:: bash
    :linenos:
-
+ 
    sudo apt-get install cmake libjpeg8-dev
-
+   
    git clone https://github.com/jacksonliam/mjpg-streamer.git
 
    cd mjpg-streamer-experimental
    mkdir build
    cd build
    cmake ..
-   make
+   sudo make
    sudo make install
 
 
@@ -450,9 +460,3 @@ Downloading (Fetching) roverweb
    
 After roverweb is installed, there is no need to install it to any static location. You can continue by running the server: :ref:`roverweb Getting started <roverwebstart>`
    
-Automated Installation Instructions
-=================================================
-
-*************************************************
-Cross-Compiling roverapp on Raspberry Pi
-*************************************************

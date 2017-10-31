@@ -60,12 +60,25 @@ In order to run the server after installation, the following command must be exe
 .. code-block:: bash
    :linenos:
 
+   cd <your/roverweb/root/path>
    node scripts/nodejs/start_roverweb.js
 
 After reading from the console that HTTP server is running, the web interface could be accessed using ``http://192.168.168.1:5500/roverweb.html``.
 Before the web interface can be opened, it is important for one to connect to the network (using SSID/PSK) of the rover. 
 
 For roverweb's operation, it is not necessary for roverapp to be running. However, full functions of roverweb could be benefited when roverapp is also running.
+   
+Starting the Camera Stream
+=================================================
+After ``mjpg_streamer`` is installed, one can start the camera stream in roverweb using the following command:
+
+.. code-block:: bash
+   :linenos:
+
+   cd <your/roverweb/root/path>/
+   sudo bash scripts/bash/camera_stream/start_camera_stream.sh
+   
+.. warning:: Be sure that the ``start_camera_stream.sh`` is given execution permissions. This is achieved by ``sudo chmod +x scripts/bash/camera_stream/start_camera_stream.sh``.
    
 *************************************************
 roverweb Complete Reference

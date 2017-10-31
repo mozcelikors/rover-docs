@@ -17,6 +17,8 @@ APP4MC-Rover Documentation
    content/roverapp.rst
    content/roverweb.rst
    content/installation.rst
+   content/cross.rst
+   content/yocto.rst
    content/extra.rst
    content/extlinks.rst
    
