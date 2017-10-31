@@ -410,7 +410,7 @@ To install roverapp, the following command should be executed:
       sudo find / -name *OpenCVConfig.cmake*
       export OpenCV_DIR=<path/to/OpenCVConfig.cmake>
 	  
-   Afterwards, the installation should be re-initialized.
+   Afterwards, the installation must be re-initialized.
    
 If desired, the automatic installation script can be used:
 

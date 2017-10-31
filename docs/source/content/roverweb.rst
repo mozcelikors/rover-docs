@@ -175,22 +175,22 @@ Example data are shown below for each of the given data format types:
 		
 	``command`` entry can indicate many integrated functions, such as the ones listed below:
 
-	* P -> Parking Mode Left
-	* O -> Parking Mode Right
-	* U -> Compass Calibration
-	* M -> Adaptive Cruise Control Mode
-	* X -> Manual Drive Mode
-	* L -> Booth Mode - Demo1
-	* N -> Booth Mode - Demo2
-	* R -> Shutdown Hook
-	* U -> Compass Calibration
-	* F -> Stop Movement
-	* Q -> Go Forward-Left
-	* W -> Go Forward
-	* E -> Go Forward-Right
-	* A -> Go Backward-Left
-	* S -> Go Backward
-	* D -> Go Backward-Right
+	* P → Parking Mode Left
+	* O → Parking Mode Right
+	* U → Compass Calibration
+	* M → Adaptive Cruise Control Mode
+	* X → Manual Drive Mode
+	* L → Booth Mode - Demo1
+	* N → Booth Mode - Demo2
+	* R → Shutdown Hook
+	* U → Compass Calibration
+	* F → Stop Movement
+	* Q → Go Forward-Left
+	* W → Go Forward
+	* E → Go Forward-Right
+	* A → Go Backward-Left
+	* S → Go Backward
+	* D → Go Backward-Right
 		
 * Speed Data
 	Data is asynchronously (upon user events) sent from roverweb to roverapp.
