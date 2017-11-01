@@ -501,7 +501,7 @@ There are also node.js modules which are required for roverweb. Those modules mu
 .. code-block:: bash
    :linenos:
 
-   npm install net connect server-static http socket.io
+   npm install net connect serve-static http socket.io
    
 Installing mjpg-streamer-experimental
 --------------------------------------------------

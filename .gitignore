@@ -1,0 +1,7 @@
+*.doctree
+*.pickle
+_build/
+*vscode*
+*pyc
+*~
+docs/build/*
