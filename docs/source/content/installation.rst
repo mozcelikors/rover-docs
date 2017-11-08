@@ -121,7 +121,7 @@ The following are the run-time dependencies used for the roverapp:
 * psutil Python module
 * wiringPi library
 * raspicam-0.1.2 or raspicam-0.1.3 library
-* OpenCV 2.4.9 library
+* OpenCV 3.2.0 library
 * Json-Cpp library
 * bluetooth-dev, bluez, pi-bluetooth libraries
 * bcm2835 library

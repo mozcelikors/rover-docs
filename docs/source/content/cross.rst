@@ -4,11 +4,15 @@
 Cross Development in Raspbian
 ########################################
 
-Roverapp Software Development Kit (SDK) for Raspbian 
-====================================================
+Roverapp Software Development Kit (SDK) Extension for Raspbian
+==============================================================
 
-Cross Development with Windows using Eclipse CDT
-================================================
+Roverapp Software Development Kit (SDK) Extension features include files and library files for the dependencies of the Rover for Cross development. While it is tested with `SysGCC Cross toolchain for Raspberry Pi <http://gnutoolchains.com/raspberry/>`_, it is able to work with many others.
+
+.. note:: Roverapp Software Development Kit (SDK) Extension for Raspbian is maintained under the following Git repository: `https://github.com/app4mc-rover/rover-app-raspbian-cross-sdk <https://github.com/app4mc-rover/rover-app-raspbian-cross-sdk>`_.
+
+Cross Development with Windows using Eclipse CDT and rover-app-raspbian-cross-sdk
+==================================================================================
 In this section, cross development using Eclipse CDT IDE in Windows platform is explained.
 
 ****************************************
@@ -26,54 +30,163 @@ Step 3: Setting Up Cross Compiler in Eclipse
 ********************************************
 Now that Eclipse is running, the next step is to set up the cross compiler aligned with the Raspberry Pi toolchain : `Cross Compiler Setup <http://www.gurucoding.com/en/raspberry_pi_eclipse/raspberry_pi_cross_compilation_in_eclipse.php>`_.
 
-********************************************
-Step 4: More configuration
-********************************************
-In the Eclipse project, make sure that following properties for your project is present:
+.. warning:: Use ``roverapp`` for the project name while creating a new project.
 
-.. image:: ../roverstatic/images/forth.png
+************************************************
+Step 4: Downloading rover-app
+************************************************
+Now that your project named ``roverapp`` exists, you can download or clone roverapp repository contents and put it in your project folder. Example way to achieve this in Linux is given below:
+
+	.. code-block:: bash
+	   :linenos:
+	   
+	   cd /path/to/your/project
+	   git clone https://github.com/app4mc-rover/rover-app.git
+	   cp -r rover-app/* .
+	   rm -rf rover-app
+
+************************************************
+Step 5: Downloading rover-app-raspbian-cross-sdk
+************************************************
+To start using the SDK extension, download or clone the contents of the Git repository to a known location of your choice.
+
+	.. code-block:: bash
+	   :linenos:
+	   
+	   git clone https://github.com/app4mc-rover/rover-app-raspbian-cross-sdk.git
+	   
+************************************************
+Step 6: Configuring Environment Variables
+************************************************
+Paths discussed in this documentation are given relatively. Some environment variables including these paths need to be declared in Eclipse.
+
+To achieve this, go to Properties for your project > C/C++ Build > Environment. Following variables should be declared:
+
+* RASPBERRY_TOOLCHAIN_PREFIX
+   * Value: arm-linux-gnueabihf-
+* RASPBERRY_TOOLCHAIN_PATH
+   * Example Value: C:\\SysGCC\\Raspberry
+* ROVERAPP_PROJECT_PATH
+   * Example Value: C:\\path\\to\\your\\project\\roverapp
+* ROVERAPP_CROSS_SDK_PATH
+   * Example Value: C:\\path\\to\\rover-app-raspbian-cross-sdk
+	   
+An example declaration of those environment variables are shown in the following image:
+
+.. image:: ../roverstatic/images/environmentvars.png
    :width: 100%
    :align: center
-   :alt: ../roverstatic/images/forth.png
-   
-In run configurations, apply the following changes. Make sure to change ``RaspberryTest`` to ``roverapp``. Under Connection, enter your SSH credentials. 
+   :alt: ../roverstatic/images/environmentvars.png
+	   
+	   
+********************************************
+Step 7: Cross Settings
+********************************************
+To make sure Eclipse CDT knows about your cross development toolchain, Cross settings must be completed as shown below under Properties for your project > C/C++ Build > Settings > Tool Settings > Cross Settings:
 
-.. image:: ../roverstatic/images/fifth.png
+.. image:: ../roverstatic/images/crosssettings.png
    :width: 100%
    :align: center
-   :alt: ../roverstatic/images/fifth.png
-   
-.. warning:: In order to avoid certain authentication problems, connecting as root can be considered.
+   :alt: ../roverstatic/images/crosssettings.png	
+	
+********************************************
+Step 8: Run Configurations
+********************************************
+From Run > Run Configurations, create a new run configuration and apply the following changes. 
 
-.. image:: ../roverstatic/images/sixth.png
+.. image:: ../roverstatic/images/runconfigurations.png
+   :width: 100%
+   :align: center
+   :alt: ../roverstatic/images/runconfigurations.png
+   
+Under Connection in Run Configurations, enter your SSH credentials. 
+
+.. image:: ../roverstatic/images/credentials.png
    :width: 70%
    :align: center
-   :alt: ../roverstatic/images/sixth.png
-
-********************************************
-Step 5: Adding Libraries
-********************************************
-The following image demonstrates how to add precompiled libraries to toolchain. Make the necessary changes and simply add names of all libraries below under C/C++ General > Paths and Symbols > Libraries.
+   :alt: ../roverstatic/images/credentials.png
    
-.. image:: ../roverstatic/images/seventh_addinglibs.png
+.. warning:: In order to avoid certain authentication problems, connecting as root can be considered.
+	
+*********************************************
+Step 9: Editing Preprocessor Definitions (-D)
+*********************************************
+Rover-app software is designed so that it compiles different files using different compilers. When cross debugging using Eclipse CDT, ``CROSS_COMPILE_ECLIPSE`` preprocessor definition must be declared. 
+
+To achieve this, locate to Properties for your project > C/C++ Build > Settings > Tool Settings > Cross GCC Compiler > Preprocessor and Properties for your project > C/C++ Build > Settings > Tool Settings > Cross G++ Compiler > Preprocessor and add the preprocessor definition as shown below:
+
+.. image:: ../roverstatic/images/preprocessor.png
    :width: 100%
    :align: center
-   :alt: ../roverstatic/images/seventh_addinglibs.png
-      
-Under Library Paths tab, you should point to where precompiled libraries (shared libraries ``.so``, archives ``.a``) are located (for linking) in your installed Raspberry Pi toolchain:
+   :alt: ../roverstatic/images/preprocessor.png
+   
+*********************************************
+Step 10: Adjusting Include Paths (-I)
+*********************************************
+Include paths for the GNU toolchain should be specified in order to compile both internal and precompiled libraries. To do this with rover-app-raspbian-cross-sdk following steps should be done:
 
-.. image:: ../roverstatic/images/libpaths.png
+* Go to Properties for your project > C/C++ Build > Settings > Tool Settings > Cross GCC Compiler > Includes and add the following to Include Paths (-I)
+   * $(ROVERAPP_PROJECT_PATH)\\include
+   * $(ROVERAPP_CROSS_SDK_PATH)\\includes\\raspicam-0.1.3\\src
+   * $(ROVERAPP_CROSS_SDK_PATH)\\includes\\i2c-dev
+   
+* Go to Properties for your project > C/C++ Build > Settings > Tool Settings > Cross G++ Compiler > Includes and add the following to Include Paths (-I)
+   * $(ROVERAPP_PROJECT_PATH)\\include\\drivers\\oled_drivers
+   * $(ROVERAPP_CROSS_SDK_PATH)\\includes\\raspicam-0.1.3\\src
+   * $(ROVERAPP_PROJECT_PATH)\\include
+   * $(ROVERAPP_CROSS_SDK_PATH)\\includes\\jsoncpp\\include
+   * $(ROVERAPP_CROSS_SDK_PATH)\\includes\\bluetooth
+   * $(ROVERAPP_CROSS_SDK_PATH)\\includes\\wiringPi
+   * $(ROVERAPP_CROSS_SDK_PATH)\\includes\\opencv-3.2.0\\include
+   * $(ROVERAPP_CROSS_SDK_PATH)\\includes\\opencv-3.2.0\\modules\\calib3d\\include
+   * $(ROVERAPP_CROSS_SDK_PATH)\\includes\\opencv-3.2.0\\modules\\features2d\\include
+   * $(ROVERAPP_CROSS_SDK_PATH)\\includes\\opencv-3.2.0\\modules\\flann\\include
+   * $(ROVERAPP_CROSS_SDK_PATH)\\includes\\opencv-3.2.0\\modules\\imgcodecs\\include
+   * $(ROVERAPP_CROSS_SDK_PATH)\\includes\\opencv-3.2.0\\modules\\ml\\include
+   * $(ROVERAPP_CROSS_SDK_PATH)\\includes\\opencv-3.2.0\\modules\\videoio\\include
+   * $(ROVERAPP_CROSS_SDK_PATH)\\includes\\opencv-3.2.0\\modules\\core\\include
+   * $(ROVERAPP_CROSS_SDK_PATH)\\includes\\opencv-3.2.0\\modules\\highgui\\include
+   * $(ROVERAPP_CROSS_SDK_PATH)\\includes\\opencv-3.2.0\\modules\\imgproc\\include
+  
+At the end, it should look like the following:  
+  
+.. image:: ../roverstatic/images/includepaths.png
    :width: 100%
    :align: center
-   :alt: ../roverstatic/images/libpaths.png
+   :alt: ../roverstatic/images/preprocessor.png
    
-To compile with precompiled libraries (such as the dependencies for roverapp), it is important that every linked library has their respective libraries (include paths) pointed in C/C++ General > Paths and Symbols > Includes :
+*****************************************************************************************
+Step 11: Specifying Precompiled Libraries to be Linked (-l) and Library Search Paths (-L)
+*****************************************************************************************
+Precompiled ARM-compiled binaries presented in the SDK extension such as shared object files ``.so``, archive files ``.a``, object files ``.o`` must be declared in the Eclipse CDT as a next step.
 
-.. image:: ../roverstatic/images/generalincludes.png
-   :width: 100%
-   :align: center
-   :alt: ../roverstatic/images/generalincludes.png
+To achieve this using the rover-app-raspbian-cross-sdk, following steps must be performed:
+
+* Go to Properties for your project > C/C++ Build > Settings > Tool Settings > Cross G++ Linker > Libraries and add following to the Libraries (-l):
+   * raspicam
+   * raspicam_cv
+   * pthread
+   * opencv_ml
+   * opencv_imgcodecs
+   * opencv_videoio
+   * opencv_calib3d
+   * opencv_features2d
+   * opencv_flann
+   * opencv_core
+   * opencv_highgui
+   * opencv_imgproc
+   * jsoncpp
+   * bluetooth
+   * wiringPi
+   * wiringPiDev
    
+* In the same window, add following to the Library search path (-L):
+   * $(ROVERAPP_CROSS_SDK_PATH)\\shared-libs\\wiringPi-libs
+   * $(ROVERAPP_CROSS_SDK_PATH)\\shared-libs\\raspicam-libs
+   * $(ROVERAPP_CROSS_SDK_PATH)\\shared-libs\\opencv-libs
+   * $(ROVERAPP_CROSS_SDK_PATH)\\shared-libs\\jsoncpp-libs
+   * $(ROVERAPP_CROSS_SDK_PATH)\\shared-libs\\bluetooth-libs
+
 .. warning:: Be sure to add include paths to the respective sections Assembly, GCC, G++ depending on which compiler is used for which packages.
 
 .. warning:: Be sure that every precompiled library that will be compiled and linked must be already installed in rover's Raspbian/Linux environment. Libraries are found in ``/usr/lib`` and ``/usr/local/lib``.
@@ -83,24 +196,27 @@ To compile with precompiled libraries (such as the dependencies for roverapp), i
 
       sudo find / -name *opencv_core*so*
 
+At the end, it should look like the following: 
+   
+.. image:: ../roverstatic/images/linker.png
+   :width: 100%
+   :align: center
+   :alt: ../roverstatic/images/linker.png
 
-Next, be sure to add the following under roverapp Project Properties>C/C++ Build>Settings>Tool Settings>Cross G++ Linker>Linker Flags:
+
+********************************************
+Step 12: Specifying Additional Linker Flags
+********************************************
+Be sure to add the following under Project Properties for your project > C/C++ Build > Settings > Tool Settings > Cross G++ Linker > Linker Flags:
 
    .. code-block:: bash
 
-      -Wl,-rpath-link,"C:\SysGCC\Raspberry\arm-linux-gnueabihf\sysroot\lib\arm-linux-gnueabihf"
-	  
-Linker paths ``-L`` and libraries to link ``-l`` should be configured as well as follows:
+      -Wl,-rpath-link,"$(RASPBERRY_TOOLCHAIN_PATH)\arm-linux-gnueabihf\sysroot\lib\arm-linux-gnueabihf"
 
-.. image:: ../roverstatic/images/linking.png
-   :width: 100%
-   :align: center
-   :alt: ../roverstatic/images/linking.png
+.. warning:: To observe which libraries are linked, you can activate verbose output, by the following Linker Flags content:
    
-In a similar fashion, be sure that ``/include`` paths for libraries to be used are expressed in roverapp Project Properties>C/C++ Build>Settings>Tool Settings>Cross GCC Compiler>Includes and roverapp Project Properties>C/C++ Build>Settings>Tool Settings>Cross G++ Compiler>Includes depending on the compiler used for those packages.
+   .. code-block:: bash
 
-.. image:: ../roverstatic/images/includes2.png
-   :width: 100%
-   :align: center
-   :alt: ../roverstatic/images/includes2.png
+      -Wl,-verbose,-rpath-link,"$(RASPBERRY_TOOLCHAIN_PATH)\arm-linux-gnueabihf\sysroot\lib\arm-linux-gnueabihf"
+	  
    
