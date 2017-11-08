@@ -237,6 +237,8 @@ To install raspicam, execute the following commands:
    
 .. note:: As an alternative you can use the following git repository: `raspicam 0.1.2 <https://github.com/cedricve/raspicam.git>`_.
 
+.. warning:: If compilation using ``make`` command fails, one should make sure ``libmmal.so`` and ``libmmal_core.so`` is located in ``/opt/vc/lib``. To install these libraries, one can do a Raspberry Pi firmware update: ``sudo rpi-update``.
+
 Installing roverapp
 *************************************************
 Roverapp's installation process is simplified by using ``CMake`` tool, a semi-automated Makefile generator for GCC compiler. The roverapp contains a ``CMakeLists.txt`` file which must be tailored after adding and linking libraries, objects, source files, and headers.
