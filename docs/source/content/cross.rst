@@ -127,12 +127,12 @@ Include paths for the GNU toolchain should be specified in order to compile both
 
 * Go to Properties for your project > C/C++ Build > Settings > Tool Settings > Cross GCC Compiler > Includes and add the following to Include Paths (-I)
    * $(ROVERAPP_PROJECT_PATH)\\include
-   * $(ROVERAPP_CROSS_SDK_PATH)\\includes\\raspicam-0.1.3\\src
+   * $(ROVERAPP_CROSS_SDK_PATH)\\includes\\raspicam-0.1.3
    * $(ROVERAPP_CROSS_SDK_PATH)\\includes\\i2c-dev
    
 * Go to Properties for your project > C/C++ Build > Settings > Tool Settings > Cross G++ Compiler > Includes and add the following to Include Paths (-I)
    * $(ROVERAPP_PROJECT_PATH)\\include\\drivers\\oled_drivers
-   * $(ROVERAPP_CROSS_SDK_PATH)\\includes\\raspicam-0.1.3\\src
+   * $(ROVERAPP_CROSS_SDK_PATH)\\includes\\raspicam-0.1.3
    * $(ROVERAPP_PROJECT_PATH)\\include
    * $(ROVERAPP_CROSS_SDK_PATH)\\includes\\jsoncpp\\include
    * $(ROVERAPP_CROSS_SDK_PATH)\\includes\\bluetooth
