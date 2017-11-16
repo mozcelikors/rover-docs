@@ -283,6 +283,7 @@ As an example, the following customly created CMakeLists.txt file eases the proc
 
 	#Include directories for external libraries
 	include_directories( ${OpenCV_INCLUDE_DIRS} )
+	include_directories( ${raspicam_INCLUDE_DIRS} )
 	#include_directories( ${jsoncpp_INCLUDE_DIRS} )
 	#include_directories( ${bluetooth_INCLUDE_DIRS} )
 
@@ -419,15 +420,27 @@ To install roverapp, the following command should be executed:
    
 .. note:: 
 
-   If the installation process complains about not being able to find ``FindOpenCV.cmake`` or ``OpenCVConfig.cmake``, or any ``.cmake`` file for that matter, the file must be searched and exported to the environment with commands such as the following:
+   If the installation process complains about not being able to find ``FindOpenCV.cmake`` or ``OpenCVConfig.cmake``, or any ``.cmake`` file for that matter, the file must be searched and exported to the environment with commands such as the following. Then building should be done such as the following:
 	
    .. code-block:: bash
-      :linenos:
 	  
       sudo find / -name *OpenCVConfig.cmake*
-      export OpenCV_DIR=<path/to/OpenCVConfig.cmake>
+      cd build
+      sudo OpenCV_DIR=<path/to/OpenCVConfig.cmake> cmake ..
+      sudo make
+      sudo make install
 	  
-   Afterwards, the installation must be re-initialized.
+	  
+   Same goes with ``raspicam``:
+   
+   .. code-block:: bash
+	  
+      sudo find / -name *raspicamConfig.cmake*
+      cd build
+      sudo OpenCV_DIR=<path/to/raspicamConfig.cmake> cmake ..
+      sudo make
+      sudo make install
+
    
 If desired, the automatic installation script can be used:
 
@@ -445,6 +458,12 @@ After installation, roverapp can be run by the following command:
 
    sudo ./roverapp
    
+.. warning:: Use the following if raspicam complains about not being able to find cmake file:
+
+   .. code-block:: bash
+   
+      sudo raspicam_DIR=/home/pi/raspicam-0.1.3/build/ ./install_roverapp.sh
+
    
 .. _roverwebinstallation: 
 *************************************************
