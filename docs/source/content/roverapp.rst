@@ -126,7 +126,7 @@ In order to send telemetry data to the Eclipse Hono instance, ``sendTelemetryDat
 .. code-block:: c++
    :linenos:
    
-   int sendTelemetryDataToHonoInstance (char * host_name, int port, char * tenant_name, char * device_id, char * field, double value)
+   int sendTelemetryDataToHonoInstance (char * host_name, int port, char * tenant_name, char * device_id, char * user, char * password, char * field, double value)
 
 The function takes the following arguments:
 
@@ -134,6 +134,8 @@ The function takes the following arguments:
 * Port to connect (int)
 * Tenant name (char \*)
 * Device ID (char \*)
+* Username (char \*)
+* Password (char \*)
 * Field name (char \*)
 * Value (double)
 
@@ -158,7 +160,7 @@ In order to send event data to the Eclipse Hono instance, ``sendEventDataToHonoI
 .. code-block:: c++
    :linenos:
    
-   int sendEventDataToHonoInstance (char * host_name, int port, char * tenant_name, char * device_id, char * field, double value)
+   int sendEventDataToHonoInstance (char * host_name, int port, char * tenant_name, char * device_id, char * user, char * password, char * field, double value)
 
 The function takes the following arguments:
 
@@ -166,6 +168,8 @@ The function takes the following arguments:
 * Port to connect (int)
 * Tenant name (char \*)
 * Device ID (char \*)
+* Username (char \*)
+* Password (char \*)
 * Field name (char \*)
 * Value (double)
 
