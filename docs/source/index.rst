@@ -15,6 +15,7 @@ APP4MC-Rover Documentation
    content/intro.rst
    content/roverhw.rst
    content/roverapp.rst
+   content/roverapi.rst
    content/roverweb.rst
    content/installation.rst
    content/cross.rst
