@@ -56,7 +56,12 @@ Rover is used as a demonstrator for two main subjects:
    :align: center
    :alt: ../roverstatic/images/APPSTACLE.png
    
-* Cloud-based communication, data infrastructure testing (for `APPSTACLE <https://itea3.org/project/appstacle.html>`_ project)
+.. image:: ../roverstatic/images/KUKSA.png
+   :width: 25%
+   :align: center
+   :alt: ../roverstatic/images/KUKSA.png
+   
+* Cloud-based communication, data infrastructure testing (for `APPSTACLE <https://itea3.org/project/appstacle.html>`_ and `Eclipse KUKSA <https://projects.eclipse.org/proposals/eclipse-kuksa>`_ projects)
 	* For this purpose, a cloud instance with Eclipse Hono infrastructure is connected to using popular communication techniques such as MQTT, and REST API.
 	* Eclipse Hono dashboard (using Grafana and InfluxDB) is configured.
 
