@@ -17,10 +17,10 @@ What is rover or APP4MC-rover?
 Rover features applications and tooling required to address complex research fields such as cloud communication, open-source tooling, multi-core and cluster computing.
 Rover is equipped with powerful sensors, motors, and display units to interact with the physical world. Furthermore, Rover uses `Eclipse PolarSys project <http://polarsys.org/polarsys-rover-user-story-application-platform-project-multicore-app4mc>`_ for its chassis and mechanics.
 
-.. image:: ../roverstatic/images/rover.jpg
-   :width: 70%
+.. image:: ../roverstatic/images/rover2.jpg
+   :width: 100%
    :align: center
-   :alt: ../roverstatic/images/rover.jpg
+   :alt: ../roverstatic/images/rover2.jpg
    
 Rover software, called **roverapp** features a multi-threaded (POSIX threads or Pthreads) C/C++ implementation that runs on Linux-based embedded single board computers (such as Raspberry Pi).
 Rover features countless threads dedicated to communication infrastructure, sensor driving, display unit (such as OLED displays) utilization, bluetooth communication, image processing, and behavior modes (such as Parking, Adaptive Cruise Control, Manual Driving, and Booth Modes).
