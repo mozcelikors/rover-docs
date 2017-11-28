@@ -258,9 +258,10 @@ As an example, the following customly created CMakeLists.txt file eases the proc
 	cmake_minimum_required (VERSION 2.8.11)
 	project (roverapp)
 	
-    # To find modules from other cmake-built projects that are searched with find_p$
-    # external cmake modules need to be provided.
-    set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_SOURCE_DIR}/ExternalCMakeModules)
+	# To find modules from other cmake-built projects that are searched with find_package,
+	# external cmake modules need to be provided. Those are typically named as Find<package>.cmake or <package>Config.cmake.
+	# Those must be added to the CMAKE_MODULE_PATH set below:
+	set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_SOURCE_DIR}/ExternalCMakeModules)
 
 	#For find_package packages, export someextlib_DIR=/path/to/..
 	# Required packages
@@ -330,6 +331,21 @@ As an example, the following customly created CMakeLists.txt file eases the proc
 
 	#Add main executable
 	add_executable(roverapp ${CMAKE_SOURCE_DIR}/src/roverapp.cpp)
+	
+	#
+	#  LINKING TO ROVER API
+	#
+
+	target_link_libraries (roverapi wiringPi)
+	target_link_libraries (roverapi wiringPiDev)
+
+	target_link_libraries(roverapi hono_interaction)
+	target_link_libraries(roverapi pthread_distribution)
+	target_link_libraries(roverapi status_library)
+	target_link_libraries(roverapi pthread_monitoring)
+	target_link_libraries(roverapi timing)
+
+	target_link_libraries (roverapi roverappdrivers)
 
 	#
 	#  LINKING TO ROVER TASKS
