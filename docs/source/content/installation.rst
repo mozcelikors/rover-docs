@@ -434,7 +434,7 @@ To install roverapp, the following command should be executed:
    mkdir -p build
    cd build
    cmake ..
-   sudo make
+   make
    sudo make install
    
 .. note:: 
@@ -446,7 +446,7 @@ To install roverapp, the following command should be executed:
       sudo find / -name *OpenCVConfig.cmake*
       cd build
       sudo OpenCV_DIR=<path/to/OpenCVConfig.cmake> cmake ..
-      sudo make
+      make
       sudo make install
 	  
 	  
@@ -457,7 +457,7 @@ To install roverapp, the following command should be executed:
       sudo find / -name *raspicamConfig.cmake*
       cd build
       sudo OpenCV_DIR=<path/to/raspicamConfig.cmake> cmake ..
-      sudo make
+      make
       sudo make install
 
    
@@ -575,7 +575,7 @@ In order to install the module, execute the following commands:
    mkdir build
    cd build
    cmake ..
-   sudo make
+   make
    sudo make install
 
 
