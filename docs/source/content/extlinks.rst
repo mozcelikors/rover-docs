@@ -10,6 +10,8 @@ External Web Links
   
 * `Rover Project Wiki <https://wiki.eclipse.org/APP4MC/Rover>`_
 
+* `PolarSys Rover Receives Technology Transfer from A4MCAR Project <https://www.polarsys.org/polarsys-rover-receives-technology-transfer-a4mcar-project>`_
+
 * `PolarSys Rover User Story: Application Platform Project for MultiCore (APP4MC) <https://www.polarsys.org/polarsys-rover-user-story-application-platform-project-multicore-app4mc>`_
 
 * `IoT Playground EclipseCon Europe 2016 APP4MC Entry <https://www.eclipsecon.org/europe2016/playground>`_
