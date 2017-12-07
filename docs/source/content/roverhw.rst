@@ -85,3 +85,15 @@ RoverSenseLayer Source Files
 .. note:: KiCad design files can be found in the following git repository: 
 
           `https://github.com/app4mc-rover/rover-sense-layer-rev2 <https://github.com/app4mc-rover/rover-sense-layer-rev2>`_
+		  
+		  
+*************************************************
+Hardware Setup Guide
+*************************************************
+
+The following image depicts the corresponding software to hardware mapping of proximity sensors and how they should be connected to RoverSenseLayer.
+
+.. image:: ../roverstatic/images/roverconn.png
+   :width: 100%
+   :align: center
+   :alt: ../roverstatic/images/roverconn.png
