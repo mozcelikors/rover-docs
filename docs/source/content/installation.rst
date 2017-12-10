@@ -126,6 +126,7 @@ The following are the run-time dependencies used for the roverapp:
 * bluetooth-dev, bluez, pi-bluetooth libraries
 * bcm2835 library
 * (modified) Adafruit_GFX and Adafruit_SSD1306 libraries
+* paho.mqtt.c libraries
 
 
 Manual Installation Instructions
@@ -238,6 +239,17 @@ To install raspicam, execute the following commands:
 .. note:: As an alternative you can use the following git repository: `raspicam 0.1.2 <https://github.com/cedricve/raspicam.git>`_.
 
 .. warning:: If compilation using ``make`` command fails, one should make sure ``libmmal.so`` and ``libmmal_core.so`` is located in ``/opt/vc/lib``. To install these libraries, one can do a Raspberry Pi firmware update: ``sudo rpi-update``.
+
+Installing paho.mqtt.c libraries
+--------------------------------------------------
+To install paho.mqtt.c libraries for MQTT-based cloud communication, execute the following commands:
+
+.. code-block:: bash
+
+   git clone https://github.com/eclipse/paho.mqtt.c.git
+   make
+   sudo make install
+
 
 Installing roverapp
 *************************************************

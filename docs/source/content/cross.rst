@@ -129,6 +129,7 @@ Include paths for the GNU toolchain should be specified in order to compile both
    * $(ROVERAPP_PROJECT_PATH)\\include
    * $(ROVERAPP_CROSS_SDK_PATH)\\includes\\raspicam-0.1.3
    * $(ROVERAPP_CROSS_SDK_PATH)\\includes\\i2c-dev
+   * $(ROVERAPP_CROSS_SDK_PATH)\\includes\\paho-mqtt
    
 * Go to Properties for your project > C/C++ Build > Settings > Tool Settings > Cross G++ Compiler > Includes and add the following to Include Paths (-I)
    * $(ROVERAPP_PROJECT_PATH)\\include\\drivers\\oled_drivers
@@ -147,8 +148,9 @@ Include paths for the GNU toolchain should be specified in order to compile both
    * $(ROVERAPP_CROSS_SDK_PATH)\\includes\\opencv-3.2.0\\modules\\core\\include
    * $(ROVERAPP_CROSS_SDK_PATH)\\includes\\opencv-3.2.0\\modules\\highgui\\include
    * $(ROVERAPP_CROSS_SDK_PATH)\\includes\\opencv-3.2.0\\modules\\imgproc\\include
+   * $(ROVERAPP_CROSS_SDK_PATH)\\includes\\paho-mqtt
   
-At the end, it should look like the following:  
+At the end, it should look like the following (roughly):  
   
 .. image:: ../roverstatic/images/includepaths.png
    :width: 100%
@@ -179,6 +181,10 @@ To achieve this using the rover-app-raspbian-cross-sdk, following steps must be 
    * bluetooth
    * wiringPi
    * wiringPiDev
+   * paho-mqtt3a
+   * paho-mqtt3as
+   * paho-mqtt3c
+   * paho-mqtt3cs
    
 * In the same window, add following to the Library search path (-L):
    * $(ROVERAPP_CROSS_SDK_PATH)\\shared-libs\\wiringPi-libs
@@ -186,6 +192,7 @@ To achieve this using the rover-app-raspbian-cross-sdk, following steps must be 
    * $(ROVERAPP_CROSS_SDK_PATH)\\shared-libs\\opencv-libs
    * $(ROVERAPP_CROSS_SDK_PATH)\\shared-libs\\jsoncpp-libs
    * $(ROVERAPP_CROSS_SDK_PATH)\\shared-libs\\bluetooth-libs
+   * $(ROVERAPP_CROSS_SDK_PATH)\\shared-libs\\paho-mqtt-libs
 
 .. warning:: Be sure to add include paths to the respective sections Assembly, GCC, G++ depending on which compiler is used for which packages.
 
@@ -196,7 +203,7 @@ To achieve this using the rover-app-raspbian-cross-sdk, following steps must be 
 
       sudo find / -name *opencv_core*so*
 
-At the end, it should look like the following: 
+At the end, it should look like the following (roughly): 
    
 .. image:: ../roverstatic/images/linker.png
    :width: 100%
