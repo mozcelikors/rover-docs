@@ -60,8 +60,10 @@ In order to run the server after installation, the following command must be exe
 .. code-block:: bash
    :linenos:
 
-   cd <your/roverweb/root/path>
-   node scripts/nodejs/start_roverweb.js
+   cd <your/roverweb/root/path>/scripts/nodejs/
+   sudo node start_roverweb.js
+   
+.. warning:: Be sure to change the folder to ``cd <your/roverweb/root/path>/scripts/nodejs/`` before executing the script, since it'll use default directory for hosting.
 
 After reading from the console that HTTP server is running, the web interface could be accessed using ``http://192.168.168.1:5500/roverweb.html``.
 Before the web interface can be opened, it is important for one to connect to the network (using SSID/PSK) of the rover. 
@@ -191,6 +193,8 @@ Example data are shown below for each of the given data format types:
 	* A → Go Backward-Left
 	* S → Go Backward
 	* D → Go Backward-Right
+	* J → Turn Left On Spot
+	* K → Turn Right On Spot
 		
 * Speed Data
 	Data is asynchronously (upon user events) sent from roverweb to roverapp.
