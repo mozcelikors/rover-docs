@@ -247,6 +247,7 @@ To install paho.mqtt.c libraries for MQTT-based cloud communication, execute the
 .. code-block:: bash
 
    git clone https://github.com/eclipse/paho.mqtt.c.git
+   cd paho.mqtt.c
    make
    sudo make install
 
