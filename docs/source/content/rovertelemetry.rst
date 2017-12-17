@@ -25,6 +25,11 @@ Operation
 ^^^^^^^^^^^^^
 Upon connection, rover-telemetry-ui subscribes to topics ``rover/<roverID>/RoverSensor/sensors`` and ``rover/<roverID>/RoverCore/usage``.
 
+.. image:: ../roverstatic/images/cloudinfra1.png
+   :width: 80%
+   :align: center
+   :alt: ../roverstatic/images/cloudinfra1.png
+
 ``rover/<roverID>/RoverCore/usage`` topic retrieves core usage information in following format:
 
 .. code-block:: javascript
