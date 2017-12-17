@@ -111,6 +111,8 @@ In rover-telemetry-ui only ``"mode":0`` is supported, which indicated manual dri
 
 Using rover-telemetry-ui
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. note:: Project is hosted in the repository: `https://github.com/app4mc-rover/rover-telemetry-ui.git <https://github.com/app4mc-rover/rover-telemetry-ui.git>`_.
+
 To download:
 
 .. code-block:: javascript
