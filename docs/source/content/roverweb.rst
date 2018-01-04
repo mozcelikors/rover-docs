@@ -106,7 +106,7 @@ Ports
 roverweb uses several ports in the network stack in order to keep communication running. The allocated ports are given below:
 
 * HTTP server: 5500
-* Socket.IO server: 5502
+* Socket.IO server: 5500 (same port as the HTTP)
 * Roverweb TCP server end: 8502
 * Roverweb TCP client end: 8501
 
