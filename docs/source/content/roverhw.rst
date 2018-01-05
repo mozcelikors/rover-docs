@@ -97,3 +97,11 @@ The following image depicts the corresponding software to hardware mapping of pr
    :width: 100%
    :align: center
    :alt: ../roverstatic/images/roverconn.png
+   
+The following shows the pins used by the current roverapp software (the reference image from https://de.pinout.xyz/pinout/):
+
+.. image:: ../roverstatic/images/rover_used_pins.png
+   :width: 100%
+   :align: center
+   :alt: ../roverstatic/images/rover_used_pins.png
+
