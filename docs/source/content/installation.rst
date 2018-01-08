@@ -513,7 +513,7 @@ The following are the run-time used for the roverweb:
 * Raspbian or similar distro that uses the Raspberry Pi metadata (meta-raspberrypi)
 * Access Point setup (with IP 192.168.168.1)
 * node.js with version 8.x or higher
-* node.js modules: net, connect, server-static, http, socket.io
+* node.js modules: net, connect, server-static, http, socket.io, express, path, mqtt
 * mjpg-streamer-experimental
 * curl
 
@@ -569,7 +569,7 @@ There are also node.js modules which are required for roverweb. Those modules mu
 .. code-block:: bash
    :linenos:
 
-   npm install net connect serve-static http socket.io express path mqtt
+   sudo npm install net connect serve-static http socket.io express path mqtt
    
 .. warning:: In case of problems while running roverweb, do this step after navigation to project directory. 
   

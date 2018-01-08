@@ -131,7 +131,7 @@ To download dependencies (If you don't have node.js installed, first install nod
    :linenos:
    
    cd rover-telemetry-ui
-   npm install net connect serve-static http socket.io express path mqtt
+   sudo npm install net connect serve-static http socket.io express path mqtt
 
 To run the server:
 

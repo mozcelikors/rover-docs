@@ -9,10 +9,11 @@ Raspbian Jessie Image
 
 Download `Raspbian Jessie Image <https://owncloud.idial.institute/index.php/s/owZwZY7tdUxlEII>`_.
 
-	* Includes dependencies and current rover-app and rover-web repositories
-	* Updated: 01.11.2017
+	* Includes dependencies and current rover-app, rover-telemetry-ui, and rover-web repositories
+	* Updated: 08.01.2017
 	
-To install the latest roverapp:
+To install the latest roverapp
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
    :linenos:
@@ -22,7 +23,8 @@ To install the latest roverapp:
    git checkout master
    sudo ./install_roverapp.sh
 
-To start roverapp:
+To start roverapp
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
    :linenos:
@@ -30,7 +32,38 @@ To start roverapp:
    cd ~/rover-app/build/bin
    sudo ./roverapp
    
-To download latest roverweb:
+Using rover-telemetry-ui
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. note:: Project is hosted in the repository: `https://github.com/app4mc-rover/rover-telemetry-ui.git <https://github.com/app4mc-rover/rover-telemetry-ui.git>`_.
+
+To download:
+
+.. code-block:: javascript
+   :linenos:
+   
+   git clone https://github.com/app4mc-rover/rover-telemetry-ui.git
+   
+To download dependencies (If you don't have node.js installed, first install node.js):
+
+.. code-block:: javascript
+   :linenos:
+   
+   cd rover-telemetry-ui
+   sudo npm install net connect serve-static http socket.io express path mqtt
+
+To run the server:
+
+.. code-block:: javascript
+   :linenos:   
+   
+   cd scripts/
+   sudo node start_rovertelemetryui.js
+   
+Finally, go to your web browser and find the page at ``http://<your host address>:5055/rovertelemetryui.html``.
+   
+To download latest roverweb
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
    :linenos:
@@ -38,8 +71,11 @@ To download latest roverweb:
    cd ~/rover-web
    git pull
    git checkout master
+   cd rover-web
+   sudo npm install net connect serve-static http socket.io express path mqtt
    
-To start roverweb:
+To start roverweb
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
    :linenos:
