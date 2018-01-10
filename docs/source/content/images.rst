@@ -7,10 +7,10 @@ Ready Images
 Raspbian Jessie Image
 ========================================
 
-Download `Raspbian Jessie Image <https://owncloud.idial.institute/index.php/s/owZwZY7tdUxlEII>`_.
+Download `Raspbian Jessie Image <https://owncloud.idial.institute/s/uvcCBdCv9CrhZRk>`_.
 
 	* Includes dependencies and current rover-app, rover-telemetry-ui, and rover-web repositories
-	* Updated: 08.01.2017
+	* Image Updated: 10.01.2017
 	
 To install the latest roverapp
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
